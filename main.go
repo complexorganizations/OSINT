@@ -15,8 +15,7 @@ import (
 	strip "github.com/grokify/html-strip-tags-go"
 )
 
-// Get returns the data as a json string
-// Use these lists.
+// Use these lists, update every 30 days.
 // https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/resources/data.json
 // https://raw.githubusercontent.com/sherlock-project/sherlock-data-nsfw/master/data.json
 func Get() string {
