@@ -19,8 +19,8 @@ const (
 	userAgent        = "Mozilla/5.0 (X11; CrOS x86_64 13310.76.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.108 Safari/537.36"
 	errorMessage     = "message"
 	errorStatusCode  = "status_code"
-   errorResponseURL = "response_url"
-   projectSherlock = "project-sherlock.json"
+	errorResponseURL = "response_url"
+	projectSherlock  = "project-sherlock.json"
 )
 
 type socialNetwork struct {
@@ -100,7 +100,7 @@ func makeRequest(wg *sync.WaitGroup, username, name string, s *socialNetwork) {
 }
 
 func sherlock(username string) {
-   data, err := ioutil.ReadFile("./project-sherlock.json")
+	data, err := ioutil.ReadFile("./project-sherlock.json")
 	// get all social networks
 	socialNetworks := socialNetworks{}
 	err = json.Unmarshal(data, &socialNetworks)
