@@ -15,8 +15,11 @@ import (
 	strip "github.com/grokify/html-strip-tags-go"
 )
 
-const (
+var (
 	userAgent        = "Mozilla/5.0 (X11; CrOS x86_64 13310.76.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.108 Safari/537.36"
+)
+
+const (
 	errorMessage     = "message"
 	errorStatusCode  = "status_code"
 	errorResponseURL = "response_url"
