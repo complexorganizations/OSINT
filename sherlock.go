@@ -23,7 +23,7 @@ const (
 	errorMessage     = "message"
 	errorStatusCode  = "status_code"
 	errorResponseURL = "response_url"
-	projectSherlock  = "project-sherlock.json"
+	projectSherlock  = "configs/project-sherlock.json"
 )
 
 type socialNetwork struct {
@@ -119,21 +119,4 @@ func sherlock(username string) {
 		go makeRequest(&wg, username, name, socialNetwork)
 	}
 	wg.Wait()
-}
-
-func main() {
-	// Parse FLags
-	username := flag.String("username", "", "check services with given username")
-	flag.Parse()
-
-	if *username == "" {
-		// Read Username, if flags is empty
-		reader := bufio.NewReader(os.Stdin)
-		fmt.Print("\033[37;1mUsername:\033[0m ")
-		*username, _ = reader.ReadString('\n')
-	}
-
-	*username = strings.ToLower(strings.Replace(strings.Trim(*username, " \r\n"), " ", "", -1))
-
-	sherlock(*username)
 }
