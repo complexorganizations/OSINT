@@ -1,10 +1,10 @@
 package main
 
 import (
-	"encoding/json"
-	"fmt"
 	"bufio"
+	"encoding/json"
 	"flag"
+	"fmt"
 	strip "github.com/grokify/html-strip-tags-go"
 	"io/ioutil"
 	"net/http"
