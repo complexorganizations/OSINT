@@ -3,6 +3,8 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"bufio"
+	"flag"
 	strip "github.com/grokify/html-strip-tags-go"
 	"io/ioutil"
 	"net/http"
