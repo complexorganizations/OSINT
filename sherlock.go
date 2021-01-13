@@ -103,7 +103,7 @@ func makeRequest(wg *sync.WaitGroup, username, name string, s *socialNetwork) {
 }
 
 func sherlock(username string) {
-	data, err := ioutil.ReadFile("./project-sherlock.json")
+	data, err := ioutil.ReadFile(projectSherlock)
 	// get all social networks
 	socialNetworks := socialNetworks{}
 	err = json.Unmarshal(data, &socialNetworks)
