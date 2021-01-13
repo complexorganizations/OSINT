@@ -1,6 +1,12 @@
 package main
 
-import ()
+import (
+	"fmt"
+	"flag"
+	"os"
+	"strings"
+	"bufio"
+)
 
 func main() {
 	// Parse FLags
