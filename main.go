@@ -120,7 +120,7 @@ func sherlock(username string) {
 
 func main() {
 	// Parse FLags
-	username := flag.String("username", "", "check services with given username")
+	username := flag.String("username", "", "checking services with given username")
 	flag.Parse()
 
 	if *username == "" {
