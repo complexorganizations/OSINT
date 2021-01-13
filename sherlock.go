@@ -1,9 +1,7 @@
 package main
 
 import (
-	"bufio"
 	"encoding/json"
-	"flag"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -11,7 +9,6 @@ import (
 	"strings"
 	"sync"
 	"time"
-
 	strip "github.com/grokify/html-strip-tags-go"
 )
 
