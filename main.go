@@ -6,6 +6,7 @@ import (
 	"os"
 	"strings"
 	"bufio"
+	"OSINT/cmd/OSINT"
 )
 
 func main() {
