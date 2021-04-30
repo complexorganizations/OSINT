@@ -6,7 +6,6 @@ import (
 	"flag"
 	"fmt"
 	strip "github.com/grokify/html-strip-tags-go"
-	"io/ioutil"
 	"net/http"
 	"os"
 	"strings"
@@ -14,14 +13,11 @@ import (
 	"time"
 )
 
-var (
-	userAgent = "Mozilla/5.0 (X11; CrOS x86_64 13310.76.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.108 Safari/537.36"
-)
-
 const (
 	errorMessage     = "message"
 	errorStatusCode  = "status_code"
 	errorResponseURL = "response_url"
+	userAgent        = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36"
 	projectSherlock  = "configs/project-sherlock.json"
 )
 
@@ -49,7 +45,7 @@ func errorLine(name, message string) {
 
 func isAvailable(s *socialNetwork, res *http.Response) bool {
 	if s.ErrorType == errorMessage {
-		bodyBytes, err := ioutil.ReadAll(res.Body)
+		bodyBytes, err := os.ReadAll(res.Body)
 		if err != nil {
 			return true
 		}
@@ -102,7 +98,7 @@ func makeRequest(wg *sync.WaitGroup, username, name string, s *socialNetwork) {
 }
 
 func sherlock(username string) {
-	data, err := ioutil.ReadFile(projectSherlock)
+	data, err := os.ReadFile(projectSherlock)
 	// get all social networks
 	socialNetworks := socialNetworks{}
 	err = json.Unmarshal(data, &socialNetworks)
