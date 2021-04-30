@@ -6,6 +6,7 @@ import (
 	"flag"
 	"fmt"
 	strip "github.com/grokify/html-strip-tags-go"
+	"io"
 	"net/http"
 	"os"
 	"strings"
@@ -45,7 +46,7 @@ func errorLine(name, message string) {
 
 func isAvailable(s *socialNetwork, res *http.Response) bool {
 	if s.ErrorType == errorMessage {
-		bodyBytes, err := os.ReadAll(res.Body)
+		bodyBytes, err := io.ReadAll(res.Body)
 		if err != nil {
 			return true
 		}
