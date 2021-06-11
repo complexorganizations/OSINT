@@ -36,10 +36,13 @@ var client = &http.Client{
 	Timeout: time.Second * 30,
 }
 
+var username string
+
 func init() {
 	// Parse FLags
-	username := flag.String("username", "", "checking services with given username")
+	tempUsername := flag.String("username", "", "checking services with given username")
 	flag.Parse()
+	username = *tempUsername
 }
 
 func successLine(name, message string) {
