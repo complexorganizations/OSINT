@@ -36,6 +36,12 @@ var client = &http.Client{
 	Timeout: time.Second * 30,
 }
 
+func init() {
+	// Parse FLags
+	username := flag.String("username", "", "checking services with given username")
+	flag.Parse()
+}
+
 func successLine(name, message string) {
 	fmt.Printf("\033[37;1m[\033[92;1m+\033[37;1m]\033[92;1m %s:\033[0m %s\n", name, message)
 }
@@ -118,10 +124,6 @@ func sherlock(username string) {
 }
 
 func main() {
-	// Parse FLags
-	username := flag.String("username", "", "checking services with given username")
-	flag.Parse()
-
 	if *username == "" {
 		// Read Username, if flags is empty
 		reader := bufio.NewReader(os.Stdin)
